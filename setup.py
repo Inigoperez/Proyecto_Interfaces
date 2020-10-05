@@ -9,7 +9,7 @@ setup(
     author='Nick Johnstone',
     author_email='ncwjohnstone@gmail.com',
     packages=['webui'],
-    scripts=['examples/test_app.py'],
+    scripts=['src/prod.py'],
     url='https://github.com/Widdershin/WebUI/',
     classifiers=[
         "Programming Language :: Python :: 3",
