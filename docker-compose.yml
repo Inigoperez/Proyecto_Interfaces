@@ -1,0 +1,37 @@
+Martin Mozos De Casso <mmozos@plaiaundi.com>
+	
+jue., 1 oct. 10:12 (hace 4 días)
+	
+para Alumnos
+Git Bash para windows: https://git-scm.com/downloads
+
+Python para windows (marcar "add to path" y la instalacion de "pip"): https://www.python.org/ftp/python/3.8.6/python-3.8.6-amd64.exe
+
+Docker Toolbox para windows y funcionar con Virtualbox (desmarcar Git y Virtualbox si los tenéis instalados y marcar el compose): https://github.com/docker/toolbox/releases/download/v19.03.1/DockerToolbox-19.03.1.exe
+
+PyCharm o VSCode recomendable.
+
+docker-compose para el postgresql:
+
+version: '3.7'
+
+services:
+
+    adminer:
+        container_name: adminer
+        hostname: adminer
+        image: adminer
+        #        environment:
+        #            - ADMINER_PLUGINS='login-servers tables-filter tinymce'
+        restart: always # run as a service
+        ports:
+            - 81:8080
+
+    postgres:
+        container_name: postgres
+        hostname: postgres
+        image: postgres:12-alpine
+        env_file: .env
+        restart: unless-stopped
+        ports:
+            - 5432:5432
